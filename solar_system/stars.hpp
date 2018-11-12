@@ -19,7 +19,8 @@ public:
 		drawStar();
 	}
 	virtual void update(long timeSpan) {
-		//TODO
+		alpha += timeSpan * speed;
+		alphaSelf += selfSpeed;
 	}
 	GLfloat alphaSelf,alpha;
 };

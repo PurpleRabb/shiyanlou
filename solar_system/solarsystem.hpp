@@ -3,6 +3,9 @@
 
 #include <GL/glut.h>
 #include "stars.hpp"
+#include <iostream>
+
+using namespace std;
 #define STARS_NUM 10
 
 class SolarSystem {
