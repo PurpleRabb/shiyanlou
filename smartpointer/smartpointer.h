@@ -61,6 +61,19 @@ public:
 		mPointer = temp;
 		return *this;
 	}
+
+	T& operator* () const {return *mPointer;}
+	T* operator-> () const {return mPointer;}
+
+	bool operator ==(const T *o) const { return mPointer == o;}
+	bool operator ==(const SmartPointer &o) const {\
+		return mPointer == o.mPointer;
+	}
+
+	bool operator !=(const T*o) const { return mPointer != o;}
+	bool operator !=(const SmartPointer &o) const {\
+		return mPointer != o.mPointer;
+	}
 private:
 	T *mPointer;
 };
