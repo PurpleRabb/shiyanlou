@@ -13,7 +13,7 @@ public:
 	inline ServiceWindow() {
 		window_status = IDLE;
 	}
-	inline bool isIdel() const {
+	inline bool isIdle() const {
 		if(window_status == IDLE) {
 			return true;
 		} else {
@@ -34,7 +34,7 @@ public:
 	}
 
 	inline int getCustomerArriveTime() const {
-		customer.arrive_time;
+		return customer.arrive_time;
 	}
 
 	inline int getCustomerDuration() const {

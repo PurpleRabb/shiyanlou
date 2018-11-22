@@ -2,6 +2,8 @@
 #define EVENT_H_
 #include "Random.hpp"
 #include "Node.hpp"
+#include <cstdlib>
+
 struct Event {
 	int occur_time;
 	int event_type; //-1 arrive,0 leave

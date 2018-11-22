@@ -2,6 +2,7 @@
 #define NODE_H_
 
 #include "Random.hpp"
+
 #define RANDOM_PARAMETER 100
 
 struct Node {
