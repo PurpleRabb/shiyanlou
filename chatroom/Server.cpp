@@ -46,8 +46,7 @@ int Server::SendBroadcastMessage(int clientfd)
 	char buf[BUF_SIZE], message[BUF_SIZE];
 	bzero(buf,BUF_SIZE);
 	bzero(message,BUF_SIZE);
-
-	cout << "read from client:" << clientfd << endl;
+	cout << "read from client: " << clientfd << endl;
 	int len = recv(clientfd,buf,BUF_SIZE,0);
 	if(len == 0)
 	{
@@ -56,7 +55,7 @@ int Server::SendBroadcastMessage(int clientfd)
 	}
 	else
 	{
-		if(clients_list.size() == 0)
+		if(clients_list.size() == 1)
 		{
 			send(clientfd,"onlyone",strlen("onlyone"),0);
 			return len;
@@ -68,7 +67,7 @@ int Server::SendBroadcastMessage(int clientfd)
 
 			if(*it != clientfd)
 			{
-				if(send(*it,message,BUF_SIZE,0))
+				if(send(*it,message,BUF_SIZE,0) < 0)
 					return -1;
 			}
 		}
