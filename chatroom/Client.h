@@ -1,0 +1,26 @@
+#ifndef CLIENT_H_
+#define CLIENT_H_
+#include <string>
+#include "Common.h"
+
+using namespace std;
+
+class Client
+{
+public:
+	Client();
+	void Connect();
+	void Close();
+	void Start();
+
+private:
+	int sock;
+	int pid;
+	int epfd;
+
+	int pipe_fd[2];
+	bool isClientwork;
+	char message[BUF_SIZE];
+	struct sockaddr_in serverAddr;
+};
+#endif

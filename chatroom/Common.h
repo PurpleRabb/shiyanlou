@@ -16,20 +16,14 @@
 #include <list>
 
 #define HOST_IP "127.0.0.1"
-#define HOST_PORT 9001
+#define HOST_PORT 8888
 #define BUF_SIZE 1024
 #define WELCOM "Welcom to chatroom!!!"
 #define WELCOME_MESSAGE "Welcom %d to chatroom!!!"
 #define GOODBYE "GOODBYE!!!"
 #define SERVER_MESSAGE "ClientID %d say >> %s"
 #define EPOLL_SIZE 5000
-
-void setnonblocking(int fd)
-{
-	fcntl(fd, F_SETFL,fcntl(fd,F_GETFD,0) | O_NONBLOCK);
-}
-
-void addfd(int epollfd, int fd, bool enable_et)
+static void addfd(int epollfd, int fd, bool enable_et)
 {
 	struct epoll_event ev;
 	ev.data.fd = fd;
@@ -37,8 +31,8 @@ void addfd(int epollfd, int fd, bool enable_et)
 	if(enable_et)
 		ev.events = EPOLLIN|EPOLLET;
 	epoll_ctl(epollfd, EPOLL_CTL_ADD, fd, &ev);
-	setnonblocking(fd);
+	fcntl(fd, F_SETFL,fcntl(fd,F_GETFD,0) | O_NONBLOCK);
+	//setnonblocking(fd);
 	printf("fd added to epoll!\n");
 }
-
 #endif
