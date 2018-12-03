@@ -1,0 +1,1 @@
+ gcc -Wall -ggdb test.c  -I/usr/local/include     -L/usr/local/lib -lavformat -lavcodec -lva-x11 -lva -lxcb-shm -lxcb-xfixes -lxcb-render -lxcb-shape -lxcb -lX11 -lasound -lz -lswresample -lswscale -lavutil -lm -pthread -o test.out
