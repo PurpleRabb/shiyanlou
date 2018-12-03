@@ -1,0 +1,1 @@
+gcc -Wall -ggdb sdl_video.c  -I/usr/local/include     -L/usr/local/lib -lavformat -lavcodec -lva-x11 -lva -lxcb-shm -lxcb-xfixes -lxcb-render -lxcb-shape -lxcb -lX11 -lasound -lz -lswresample -lswscale -lavutil -lm `sdl-config --cflags --libs` -pthread -o project2.out
